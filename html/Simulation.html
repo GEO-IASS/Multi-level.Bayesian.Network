@@ -1,0 +1,396 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Simulation</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-06"><meta name="DC.source" content="Simulation.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">clear <span class="string">all</span>
+False = 1;
+True = 2;
+</pre><p>&#23450;&#20041;&#33410;&#28857;</p><pre class="codeinput"> a1 =  1;  r1 =  2;  a2 =  3;  r2 =  4;  r3 =  5;  a3 =  6;  a4 =  7;  r4 =  8;  r5 =  9;  a5 = 10;
+ r6 = 11;  a6 = 12;  r7 = 13;  r8 = 14;  r9 = 15; r10 = 16;  a7 = 17;  a8 = 18;  a9 = 19; a10 = 20;
+r11 = 21; r12 = 22; r13 = 23; a11 = 24; a12 = 25; a13 = 26; a14 = 27; a15 = 28; a16 = 29; a17 = 30;
+a18 = 31; a19 = 32; a20 = 33;  f1 = 34;  f2 = 35;  f3 = 36;  f4 = 37;  f5 = 38;  f6 = 39;  f7 = 40;
+ f8 = 41;  f9 = 42; f10 = 43; f11 = 44; f12 = 45;  e1 = 46;  e2 = 47;  e3 = 48;  e7 = 49;  e4 = 50;
+ e5 = 51;  e6 = 52;  x1 = 53;  x2 = 54;  x3 = 55;  x4 = 56;  x5 = 57;
+</pre><p>&#23450;&#20041; Labels</p><pre class="codeinput">Labels = {
+ <span class="string">'a1'</span>,  <span class="string">'r1'</span>,  <span class="string">'a2'</span>,  <span class="string">'r2'</span>,  <span class="string">'r3'</span>,  <span class="string">'a3'</span>,  <span class="string">'a4'</span>,  <span class="string">'r4'</span>,  <span class="string">'r5'</span>,  <span class="string">'a5'</span>,  <span class="keyword">...</span>
+ <span class="string">'r6'</span>,  <span class="string">'a6'</span>,  <span class="string">'r7'</span>,  <span class="string">'r8'</span>,  <span class="string">'r9'</span>, <span class="string">'r10'</span>,  <span class="string">'a7'</span>,  <span class="string">'a8'</span>,  <span class="string">'a9'</span>, <span class="string">'a10'</span>,  <span class="keyword">...</span>
+<span class="string">'r11'</span>, <span class="string">'r12'</span>, <span class="string">'r13'</span>, <span class="string">'a11'</span>, <span class="string">'a12'</span>, <span class="string">'a13'</span>, <span class="string">'a14'</span>, <span class="string">'a15'</span>, <span class="string">'a16'</span>, <span class="string">'a17'</span>,  <span class="keyword">...</span>
+<span class="string">'a18'</span>, <span class="string">'a19'</span>, <span class="string">'a20'</span>,  <span class="string">'f1'</span>,  <span class="string">'f2'</span>,  <span class="string">'f3'</span>,  <span class="string">'f4'</span>,  <span class="string">'f5'</span>,  <span class="string">'f6'</span>,  <span class="string">'f7'</span>,  <span class="keyword">...</span>
+ <span class="string">'f8'</span>,  <span class="string">'f9'</span>, <span class="string">'f10'</span>, <span class="string">'f11'</span>, <span class="string">'f12'</span>,  <span class="string">'e1'</span>,  <span class="string">'e2'</span>,  <span class="string">'e3'</span>,  <span class="string">'e7'</span>,  <span class="string">'e4'</span>,  <span class="keyword">...</span>
+ <span class="string">'e5'</span>,  <span class="string">'e6'</span>,  <span class="string">'x1'</span>,  <span class="string">'x2'</span>,  <span class="string">'x3'</span>,  <span class="string">'x4'</span>,  <span class="string">'x5'</span>
+};
+
+
+[~, N] = size(Labels);
+Network = zeros(N, N);
+</pre><p>&#25915;&#20987;&#23618;</p><pre class="codeinput">Network(a1, r1) = 1;
+Network(r1, a2) = 1;
+Network(a2, [r2, r3]) = 1;
+Network(r2, a3) = 1;
+Network(a3, r4) = 1;
+Network(r3, a4) = 1;
+Network(a4, r5) = 1;
+Network([r4 r5], a5) = 1;
+Network(a5, r6) = 1;
+Network(r6, a6) = 1;
+Network(a6, [r7 r8 r9 r10]) = 1;
+Network(r7, a7) = 1;
+Network(r8, a8) = 1;
+Network(r9, a9) = 1;
+Network(r10, a10) = 1;
+Network(a7, r11) = 1;
+Network([a8 a9], r12) = 1;
+Network(a10, r13) = 1;
+Network(r11, [a11 a12 a13 a14 a15]) = 1;
+Network(r12, [a11 a12 a13 a14 a15]) = 1;
+Network(r13, [a11 a12 a13 a14 a15 a16 a17 a18 a19 a20]) = 1;
+</pre><p>&#21151;&#33021;&#23618;</p><pre class="codeinput">Network(a11, [f1 f2]) = 1;
+Network(a12, f6) = 1;
+Network(a13, [f7 f8 f9]) = 1;
+Network(a14, [f3 f4]) = 1;
+Network(a15, f5) = 1;
+Network(a16, [f1 f2]) = 1;
+Network(a17, f6) = 1;
+Network(a18, [f7 f8 f9]) = 1;
+Network(a19, [f3 f4]) = 1;
+Network(a20, f5) = 1;
+
+Network([f1 f2 f3 f7], f10) = 1;
+Network([f1 f2 f3 f5 f8], f11) = 1;
+Network([f4 f9], f12) = 1;
+</pre><p>&#20107;&#20214;&#23618;</p><pre class="codeinput">Network(f10, e1) = 1;
+Network(f11, e2) = 1;
+Network(f12, e3) = 1;
+Network(f6, e7) = 1;
+Network(e1, [e4 e6]) = 1;
+Network(e3, e5) = 1;
+
+Network([e2 e3 e5 e6 e7], x1) = 1;
+Network([e5 e3], x2) = 1;
+Network([e4 e5], x3) = 1;
+Network(e5, x4) = 1;
+Network([e5 e6], x5) = 1;
+</pre><pre class="codeinput">discrete_nodes = 1:N;
+node_sizes= 2 * ones(1, N);
+bnet = mk_bnet(Network, node_sizes, <span class="string">'names'</span>, Labels, <span class="string">'discrete'</span>, discrete_nodes);
+</pre><p>&#26465;&#20214;&#27010;&#29575;</p><pre class="codeinput">bnet.CPD{ a1} = tabular_CPD(bnet,  a1, [0.99,0.01]);
+bnet.CPD{ r1} = tabular_CPD(bnet,  r1, [0.99,0.01,0.01,0.99]);
+bnet.CPD{ a2} = tabular_CPD(bnet,  a2, [0.99,0.05,0.01,0.95]);
+bnet.CPD{ r2} = tabular_CPD(bnet,  r2, [0.99,0.15,0.01,0.85]);
+bnet.CPD{ r3} = tabular_CPD(bnet,  r3, [0.99,0.1,0.01,0.90]);
+bnet.CPD{ a3} = tabular_CPD(bnet,  a3, [0.98,0.05,0.02,0.95]);
+bnet.CPD{ a4} = tabular_CPD(bnet,  a4, [0.97,0.05,0.03,0.95]);
+bnet.CPD{ r4} = tabular_CPD(bnet,  r4, [0.98,0.05,0.02,0.95]);
+bnet.CPD{ r5} = tabular_CPD(bnet,  r5, [0.99,0.04,0.01,0.96]);
+bnet.CPD{ a5} = tabular_CPD(bnet,  a5, [0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.65]);
+bnet.CPD{ r6} = tabular_CPD(bnet,  r6, [0.99,0.05,0.01,0.95]);
+bnet.CPD{ a6} = tabular_CPD(bnet,  a6, [0.98,0.04,0.02,0.96]);
+bnet.CPD{ r7} = tabular_CPD(bnet,  r7, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ r8} = tabular_CPD(bnet,  r8, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ r9} = tabular_CPD(bnet,  r9, [0.98,0.02,0.02,0.98]);
+bnet.CPD{r10} = tabular_CPD(bnet, r10, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ a7} = tabular_CPD(bnet,  a7, [0.97,0.2,0.03,0.80]);
+bnet.CPD{ a8} = tabular_CPD(bnet,  a8, [0.97,0.2,0.03,0.80]);
+bnet.CPD{ a9} = tabular_CPD(bnet,  a9, [0.97,0.2,0.03,0.80]);
+bnet.CPD{a10} = tabular_CPD(bnet, a10, [0.97,0.2,0.03,0.80]);
+bnet.CPD{r11} = tabular_CPD(bnet, r11, [0.94,0.04,0.06,0.96]);
+bnet.CPD{r12} = tabular_CPD(bnet, r12, [0.99,0.2,0.2,0.01,0.01,0.80,0.80,0.99]);
+bnet.CPD{r13} = tabular_CPD(bnet, r13, [0.97,0.12,0.03,0.88]);
+bnet.CPD{a11} = tabular_CPD(bnet, a11, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a12} = tabular_CPD(bnet, a12, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a13} = tabular_CPD(bnet, a13, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a14} = tabular_CPD(bnet, a14, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a15} = tabular_CPD(bnet, a15, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a16} = tabular_CPD(bnet, a16, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a17} = tabular_CPD(bnet, a17, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a18} = tabular_CPD(bnet, a18, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a19} = tabular_CPD(bnet, a19, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a20} = tabular_CPD(bnet, a20, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ f1} = tabular_CPD(bnet,  f1, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f2} = tabular_CPD(bnet,  f2, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f3} = tabular_CPD(bnet,  f3, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f4} = tabular_CPD(bnet,  f4, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f5} = tabular_CPD(bnet,  f5, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f6} = tabular_CPD(bnet,  f6, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f7} = tabular_CPD(bnet,  f7, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f8} = tabular_CPD(bnet,  f8, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f9} = tabular_CPD(bnet,  f9, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{f10} = tabular_CPD(bnet, f10, [0.99,0.98,0.98,0.5,0.97,0.54,0.34,0.14,0.98,0.67,0.64,0.32,0.45,0.14,0.15,0.01,0.01,0.02,0.02,0.50,0.03,0.46,0.66,0.86,0.02,0.33,0.36,0.68,0.55,0.86,0.85,0.99]);
+bnet.CPD{f11} = tabular_CPD(bnet, f11, [0.99,0.95,0.97,0.8,0.94,0.5,0.4,0.2,0.96,0.7,0.55,0.45,0.6,0.44,0.34,0.11,0.97,0.91,0.8,0.64,0.25,0.44,0.65,0.14,0.75,0.35,0.53,0.14,0.14,0.0600000000000001,0.09,0.01,0.01,0.05,0.03,0.20,0.06,0.50,0.60,0.80,0.04,0.30,0.45,0.55,0.40,0.56,0.66,0.89,0.03,0.09,0.20,0.36,0.75,0.56,0.35,0.86,0.25,0.65,0.47,0.86,0.86,0.94,0.91,0.99]);
+bnet.CPD{f12} = tabular_CPD(bnet, f12, [0.99,0.5,0.5,0.01,0.01,0.50,0.50,0.99]);
+bnet.CPD{ e1} = tabular_CPD(bnet,  e1, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e2} = tabular_CPD(bnet,  e2, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e3} = tabular_CPD(bnet,  e3, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e7} = tabular_CPD(bnet,  e7, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e4} = tabular_CPD(bnet,  e4, [0.99,0.23,0.01,0.77]);
+bnet.CPD{ e5} = tabular_CPD(bnet,  e5, [0.97,0.12,0.03,0.88]);
+bnet.CPD{ e6} = tabular_CPD(bnet,  e6, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ x3} = tabular_CPD(bnet,  x3, [1,0,0,0,0.00,1.00,1.00,1.00]);
+bnet.CPD{ x4} = tabular_CPD(bnet,  x4, [1,0,0.00,1.00]);
+bnet.CPD{ x1} = tabular_CPD(bnet,  x1, [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00]);
+bnet.CPD{ x2} = tabular_CPD(bnet,  x2, [1,0,0,0,0.00,1.00,1.00,1.00]);
+bnet.CPD{ x5} = tabular_CPD(bnet,  x5, [1,0,0,0,0.00,1.00,1.00,1.00]);
+</pre><p>&#21028;&#26029;&#37051;&#25509;&#30697;&#38453;&#26159;&#21542;&#20026;&#19978;&#19977;&#35282; R = 1; for i = 1:N     for j = 1:i         if Network(i,j) ~= 0             R = 0;         end     end end</p><p>Network</p><p>if R == 1     disp('OK!') else     disp('NO!') end</p><p>&#30011;&#22270; [x,y] = draw_graph(Network, Labels);</p><pre class="codeinput">engine=jtree_inf_engine(bnet);
+evidence=cell(1, N);
+evidence{a2}= True;
+[engine,loglik]=enter_evidence(engine,evidence);
+m=marginal_nodes(engine, a1);
+m.T(2)
+</pre><pre class="codeoutput">
+ans =
+
+    0.3287
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear all
+False = 1;
+True = 2;
+
+%%
+% 定义节点
+ a1 =  1;  r1 =  2;  a2 =  3;  r2 =  4;  r3 =  5;  a3 =  6;  a4 =  7;  r4 =  8;  r5 =  9;  a5 = 10; 
+ r6 = 11;  a6 = 12;  r7 = 13;  r8 = 14;  r9 = 15; r10 = 16;  a7 = 17;  a8 = 18;  a9 = 19; a10 = 20; 
+r11 = 21; r12 = 22; r13 = 23; a11 = 24; a12 = 25; a13 = 26; a14 = 27; a15 = 28; a16 = 29; a17 = 30; 
+a18 = 31; a19 = 32; a20 = 33;  f1 = 34;  f2 = 35;  f3 = 36;  f4 = 37;  f5 = 38;  f6 = 39;  f7 = 40; 
+ f8 = 41;  f9 = 42; f10 = 43; f11 = 44; f12 = 45;  e1 = 46;  e2 = 47;  e3 = 48;  e7 = 49;  e4 = 50; 
+ e5 = 51;  e6 = 52;  x1 = 53;  x2 = 54;  x3 = 55;  x4 = 56;  x5 = 57; 
+                    
+%%
+% 定义 Labels
+Labels = {
+ 'a1',  'r1',  'a2',  'r2',  'r3',  'a3',  'a4',  'r4',  'r5',  'a5',  ... 
+ 'r6',  'a6',  'r7',  'r8',  'r9', 'r10',  'a7',  'a8',  'a9', 'a10',  ... 
+'r11', 'r12', 'r13', 'a11', 'a12', 'a13', 'a14', 'a15', 'a16', 'a17',  ... 
+'a18', 'a19', 'a20',  'f1',  'f2',  'f3',  'f4',  'f5',  'f6',  'f7',  ... 
+ 'f8',  'f9', 'f10', 'f11', 'f12',  'e1',  'e2',  'e3',  'e7',  'e4',  ... 
+ 'e5',  'e6',  'x1',  'x2',  'x3',  'x4',  'x5'
+};
+
+
+[~, N] = size(Labels);
+Network = zeros(N, N);  
+
+%% 
+% 攻击层
+Network(a1, r1) = 1;
+Network(r1, a2) = 1;
+Network(a2, [r2, r3]) = 1;
+Network(r2, a3) = 1;
+Network(a3, r4) = 1;
+Network(r3, a4) = 1;
+Network(a4, r5) = 1;
+Network([r4 r5], a5) = 1;
+Network(a5, r6) = 1;
+Network(r6, a6) = 1;
+Network(a6, [r7 r8 r9 r10]) = 1;
+Network(r7, a7) = 1;
+Network(r8, a8) = 1;
+Network(r9, a9) = 1;
+Network(r10, a10) = 1;
+Network(a7, r11) = 1;
+Network([a8 a9], r12) = 1;
+Network(a10, r13) = 1;
+Network(r11, [a11 a12 a13 a14 a15]) = 1;
+Network(r12, [a11 a12 a13 a14 a15]) = 1;
+Network(r13, [a11 a12 a13 a14 a15 a16 a17 a18 a19 a20]) = 1;
+
+%% 
+% 功能层
+Network(a11, [f1 f2]) = 1;
+Network(a12, f6) = 1;
+Network(a13, [f7 f8 f9]) = 1;
+Network(a14, [f3 f4]) = 1;
+Network(a15, f5) = 1;
+Network(a16, [f1 f2]) = 1;
+Network(a17, f6) = 1;
+Network(a18, [f7 f8 f9]) = 1;
+Network(a19, [f3 f4]) = 1;
+Network(a20, f5) = 1;
+
+Network([f1 f2 f3 f7], f10) = 1;
+Network([f1 f2 f3 f5 f8], f11) = 1;
+Network([f4 f9], f12) = 1;
+
+%%
+% 事件层
+Network(f10, e1) = 1;
+Network(f11, e2) = 1;
+Network(f12, e3) = 1;
+Network(f6, e7) = 1;
+Network(e1, [e4 e6]) = 1;
+Network(e3, e5) = 1;
+
+Network([e2 e3 e5 e6 e7], x1) = 1;
+Network([e5 e3], x2) = 1;
+Network([e4 e5], x3) = 1;
+Network(e5, x4) = 1;
+Network([e5 e6], x5) = 1;
+
+%%
+
+discrete_nodes = 1:N;  
+node_sizes= 2 * ones(1, N); 
+bnet = mk_bnet(Network, node_sizes, 'names', Labels, 'discrete', discrete_nodes);  
+
+%%
+% 条件概率
+bnet.CPD{ a1} = tabular_CPD(bnet,  a1, [0.99,0.01]);
+bnet.CPD{ r1} = tabular_CPD(bnet,  r1, [0.99,0.01,0.01,0.99]);
+bnet.CPD{ a2} = tabular_CPD(bnet,  a2, [0.99,0.05,0.01,0.95]);
+bnet.CPD{ r2} = tabular_CPD(bnet,  r2, [0.99,0.15,0.01,0.85]);
+bnet.CPD{ r3} = tabular_CPD(bnet,  r3, [0.99,0.1,0.01,0.90]);
+bnet.CPD{ a3} = tabular_CPD(bnet,  a3, [0.98,0.05,0.02,0.95]);
+bnet.CPD{ a4} = tabular_CPD(bnet,  a4, [0.97,0.05,0.03,0.95]);
+bnet.CPD{ r4} = tabular_CPD(bnet,  r4, [0.98,0.05,0.02,0.95]);
+bnet.CPD{ r5} = tabular_CPD(bnet,  r5, [0.99,0.04,0.01,0.96]);
+bnet.CPD{ a5} = tabular_CPD(bnet,  a5, [0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.65]);
+bnet.CPD{ r6} = tabular_CPD(bnet,  r6, [0.99,0.05,0.01,0.95]);
+bnet.CPD{ a6} = tabular_CPD(bnet,  a6, [0.98,0.04,0.02,0.96]);
+bnet.CPD{ r7} = tabular_CPD(bnet,  r7, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ r8} = tabular_CPD(bnet,  r8, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ r9} = tabular_CPD(bnet,  r9, [0.98,0.02,0.02,0.98]);
+bnet.CPD{r10} = tabular_CPD(bnet, r10, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ a7} = tabular_CPD(bnet,  a7, [0.97,0.2,0.03,0.80]);
+bnet.CPD{ a8} = tabular_CPD(bnet,  a8, [0.97,0.2,0.03,0.80]);
+bnet.CPD{ a9} = tabular_CPD(bnet,  a9, [0.97,0.2,0.03,0.80]);
+bnet.CPD{a10} = tabular_CPD(bnet, a10, [0.97,0.2,0.03,0.80]);
+bnet.CPD{r11} = tabular_CPD(bnet, r11, [0.94,0.04,0.06,0.96]);
+bnet.CPD{r12} = tabular_CPD(bnet, r12, [0.99,0.2,0.2,0.01,0.01,0.80,0.80,0.99]);
+bnet.CPD{r13} = tabular_CPD(bnet, r13, [0.97,0.12,0.03,0.88]);
+bnet.CPD{a11} = tabular_CPD(bnet, a11, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a12} = tabular_CPD(bnet, a12, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a13} = tabular_CPD(bnet, a13, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a14} = tabular_CPD(bnet, a14, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a15} = tabular_CPD(bnet, a15, [0.99,0.99,0.99,0.99,0.99,0.99,0.99,0.35,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.65]);
+bnet.CPD{a16} = tabular_CPD(bnet, a16, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a17} = tabular_CPD(bnet, a17, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a18} = tabular_CPD(bnet, a18, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a19} = tabular_CPD(bnet, a19, [0.98,0.02,0.02,0.98]);
+bnet.CPD{a20} = tabular_CPD(bnet, a20, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ f1} = tabular_CPD(bnet,  f1, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f2} = tabular_CPD(bnet,  f2, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f3} = tabular_CPD(bnet,  f3, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f4} = tabular_CPD(bnet,  f4, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f5} = tabular_CPD(bnet,  f5, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f6} = tabular_CPD(bnet,  f6, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f7} = tabular_CPD(bnet,  f7, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f8} = tabular_CPD(bnet,  f8, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{ f9} = tabular_CPD(bnet,  f9, [0.99,0.44,0.32,0.1,0.01,0.56,0.68,0.90]);
+bnet.CPD{f10} = tabular_CPD(bnet, f10, [0.99,0.98,0.98,0.5,0.97,0.54,0.34,0.14,0.98,0.67,0.64,0.32,0.45,0.14,0.15,0.01,0.01,0.02,0.02,0.50,0.03,0.46,0.66,0.86,0.02,0.33,0.36,0.68,0.55,0.86,0.85,0.99]);
+bnet.CPD{f11} = tabular_CPD(bnet, f11, [0.99,0.95,0.97,0.8,0.94,0.5,0.4,0.2,0.96,0.7,0.55,0.45,0.6,0.44,0.34,0.11,0.97,0.91,0.8,0.64,0.25,0.44,0.65,0.14,0.75,0.35,0.53,0.14,0.14,0.0600000000000001,0.09,0.01,0.01,0.05,0.03,0.20,0.06,0.50,0.60,0.80,0.04,0.30,0.45,0.55,0.40,0.56,0.66,0.89,0.03,0.09,0.20,0.36,0.75,0.56,0.35,0.86,0.25,0.65,0.47,0.86,0.86,0.94,0.91,0.99]);
+bnet.CPD{f12} = tabular_CPD(bnet, f12, [0.99,0.5,0.5,0.01,0.01,0.50,0.50,0.99]);
+bnet.CPD{ e1} = tabular_CPD(bnet,  e1, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e2} = tabular_CPD(bnet,  e2, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e3} = tabular_CPD(bnet,  e3, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e7} = tabular_CPD(bnet,  e7, [0.97,0.1,0.03,0.90]);
+bnet.CPD{ e4} = tabular_CPD(bnet,  e4, [0.99,0.23,0.01,0.77]);
+bnet.CPD{ e5} = tabular_CPD(bnet,  e5, [0.97,0.12,0.03,0.88]);
+bnet.CPD{ e6} = tabular_CPD(bnet,  e6, [0.98,0.02,0.02,0.98]);
+bnet.CPD{ x3} = tabular_CPD(bnet,  x3, [1,0,0,0,0.00,1.00,1.00,1.00]);
+bnet.CPD{ x4} = tabular_CPD(bnet,  x4, [1,0,0.00,1.00]);
+bnet.CPD{ x1} = tabular_CPD(bnet,  x1, [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00]);
+bnet.CPD{ x2} = tabular_CPD(bnet,  x2, [1,0,0,0,0.00,1.00,1.00,1.00]);
+bnet.CPD{ x5} = tabular_CPD(bnet,  x5, [1,0,0,0,0.00,1.00,1.00,1.00]);
+
+
+
+
+%%
+% 判断邻接矩阵是否为上三角
+% R = 1;
+% for i = 1:N
+%     for j = 1:i
+%         if Network(i,j) ~= 0
+%             R = 0;
+%         end
+%     end
+% end
+% 
+% Network
+% 
+% if R == 1
+%     disp('OK!')
+% else
+%     disp('NO!')
+% end
+
+%%
+% 画图
+% [x,y] = draw_graph(Network, Labels);
+
+%%
+engine=jtree_inf_engine(bnet);  
+evidence=cell(1, N);  
+evidence{a2}= True;
+[engine,loglik]=enter_evidence(engine,evidence);  
+m=marginal_nodes(engine, a1);  
+m.T(2)
+
+
+##### SOURCE END #####
+--></body></html>
